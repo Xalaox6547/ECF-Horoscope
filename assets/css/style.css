@@ -1,0 +1,378 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#starCanvas {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center,
+      #1b2c59 0%,
+      #0b1d3a 50%,
+      #000010 100%);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.top-header {
+  width: 100%;
+  padding: 2rem 0 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.btn-container {
+  width: 12.5rem;
+  height: 2.81rem;
+  display: inline-block;
+  overflow: visible;
+}
+
+.btn-container:hover {
+  transform: scale(1.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.btn-container:active {
+  transform: scale(1);
+}
+
+button#space-btn {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(80deg, #b8002e, #800016, #40000f, #0a000c);
+  cursor: pointer;
+}
+
+button span {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.star {
+  width: 1px;
+  height: 1px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px 0 white;
+  }
+
+  50% {
+    box-shadow: 0 0 10px 2px white;
+  }
+}
+
+.shooting-star {
+  width: 5rem;
+  height: 1px;
+  position: absolute;
+  background: linear-gradient(80deg, #fff, transparent);
+  border-radius: 50%;
+  transform: rotate(-40deg);
+  opacity: 0.8;
+}
+
+.shooting-star-1 {
+  animation: fallingStar1 4s 6s infinite;
+}
+
+.shooting-star-2 {
+  animation: fallingStar2 2s 10s infinite;
+}
+
+.shooting-star-3 {
+  animation: fallingStar3 8s 20s infinite;
+}
+
+.shooting-star-4 {
+  animation: fallingStar4 4s 6s infinite;
+}
+
+@keyframes fallingStar1 {
+  0% {
+    top: -10px;
+    left: 21.25rem;
+    opacity: 1;
+  }
+
+  100% {
+    top: 12.5rem;
+    left: -1.25rem;
+    opacity: 0;
+  }
+}
+
+@keyframes fallingStar2 {
+  0% {
+    top: -0.62rem;
+    left: 9.37rem;
+    opacity: 1;
+  }
+
+  100% {
+    top: 12.5rem;
+    left: -5.62rem;
+    opacity: 0;
+  }
+}
+
+@keyframes fallingStar3 {
+  0% {
+    top: -0.62rem;
+    left: 5rem;
+    opacity: 1;
+  }
+
+  100% {
+    top: 12.5rem;
+    left: -10rem;
+    opacity: 0;
+  }
+}
+
+@keyframes fallingStar4 {
+  0% {
+    top: -0.62rem;
+    left: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 12.5rem;
+    left: -15rem;
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.loader {
+  width: 6rem;
+  height: 6rem;
+  clear: both;
+  margin: 1.5rem auto;
+  border: 2px #fff solid;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader:after,
+.loader:before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  animation: spVortex 2s infinite linear;
+}
+
+.loader:before {
+  border-top: 0.5rem #fff solid;
+  top: -0.1875rem;
+  left: calc(-50% - 0.1875rem);
+  transform-origin: right center;
+}
+
+.loader:after {
+  border-bottom: 0.5rem #fff solid;
+  top: 0.1875rem;
+  right: calc(-50% - 0.1875rem);
+  transform-origin: left center;
+}
+
+@keyframes spVortex {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.titre-horoscope {
+  font-size: 2.12rem;
+  text-align: center;
+  margin-top: 2.18rem;
+  margin-bottom: 3.75rem;
+  color: white;
+  font-weight: normal;
+  font-style: italic;
+  display: inline-block;
+  border-bottom: 2px solid white;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.56rem;
+  padding: 1.25rem;
+}
+
+.card {
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.56rem;
+  overflow: hidden;
+  color: white;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background:
+    radial-gradient(at 30% 30%, rgba(255, 0, 150, 0.3), transparent 60%),
+    radial-gradient(at 70% 70%, rgba(255, 140, 0, 0.2), transparent 60%),
+    radial-gradient(at 20% 80%, rgba(180, 0, 255, 0.25), transparent 60%),
+    linear-gradient(160deg, #0a000c 0%, #1a001a 100%);
+  background-blend-mode: screen, overlay, normal;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 2px 2px, 3px 3px;
+  background-position: 10% 20%, 80% 70%;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-header,
+.card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.card-header {
+  font-size: 1.37rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header .emoji {
+  font-size: 1.2em;
+}
+
+.card-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e3e3e3;
+}
+
+.card:hover {
+  background-position: bottom left;
+  box-shadow: 0 0 25px rgba(255, 0, 150, 0.25), 0 0 60px rgba(255, 140, 0, 0.2);
+}
+
+.site-footer {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 16, 0.5);
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 5;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff509e;
+}
+
+body, main, .footer-content, .cards-container, .card {
+  max-width: 100%;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .site-footer p {
+    padding: 0 1rem;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  .footer-links {
+    text-align: left;
+    padding: 0 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-align: left;
+  }
+
+  .main-title {
+    font-size: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  .titre-horoscope {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+}

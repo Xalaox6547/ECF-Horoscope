@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/images/icon.webp" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Horoscope ECF1</title>
+</head>
+
+<body>
+  <canvas id="starCanvas"></canvas>
+  <main class="horoscope-wrapper" role="main">
+
+    <div class="top-header">
+      <h1 class="main-title">Bienvenue Sur l'Horoscope</h1>
+      <div class="btn-container">
+        <button id="space-btn" onclick="afficherTousLesHoroscopes()" aria-label="Tirer les 12 messages">
+          <span>Tirez les 12 Messages</span>
+          <div class="shooting-star shooting-star-1"></div>
+          <div class="shooting-star shooting-star-2"></div>
+          <div class="shooting-star shooting-star-3"></div>
+          <div class="shooting-star shooting-star-4"></div>
+        </button>
+      </div>
+    </div>
+
+    <div id="load" class="loader hidden"></div>
+    <div id="horoscope-result"></div>
+  </main>
+
+
+  <script src="./assets/js/main.js"></script>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy;2025 Horoscope ECF1 Tous droits réservés</p>
+      <div class="footer-links">
+        <a href="./assets/RGPD et CGU/cgu.html" target="_blank" rel="noopener noreferrer">CGU</a>
+        <span>|</span>
+        <a href="./assets/RGPD et CGU/rgpd.html" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
