@@ -6,6 +6,11 @@ Horoscope ECF1 est une application web interactive permettant d'afficher les hor
 
 ---
 
+
+## Trello  
+[assets/images/trello.jpg]
+
+
 ## 🛠️ Technologies utilisées
 
 - HTML5
